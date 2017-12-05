@@ -1,0 +1,42 @@
+#include<stdio.h>
+#define x 3
+#define y 3
+int main()
+{
+	int  i, j, p, m, c;
+	
+	int b[100];
+	
+	int a[3][3]={{1,1,2},{3,6,5},{4,88,6}};
+	
+	for(i=0;i<x;i++)
+	{
+		m=0;
+		for(j=1;j<y;j++)
+		{
+			if(a[i][0]<a[i][j])
+			{
+				c=j;
+				a[i][0]=a[i][j];
+			}
+		}
+		b[m]=c;
+		m++;
+	}
+	for(i=0;i<x-1;i++)
+	{
+		if(a[i][0]<a[i+1][0])
+		{
+			p=i+1;
+		}
+	}
+	
+	for(m=0;m<4;m++)
+	{
+		printf("%d\n",b[m]);
+	}
+	
+	printf("the biggest number is%d\n",a[p][0]);
+	printf("row :%d\n",b[p]+1);
+	printf("colum :%d\n",p+1);
+}
