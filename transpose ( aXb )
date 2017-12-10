@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int swap1(int* a,int* b);
+int maxx(int a,int b);
+int main()
+{
+	int i, j, a, b, c;
+	
+	int NUM [100][100];
+	printf("input row:");
+	scanf("%d",&a);
+	printf("input column:");
+	scanf("%d",&b);
+	for(i=0;i<a;i++)
+	{
+		for(j=0;j<b;j++)
+		{
+			scanf("%d",&NUM[i][j]);
+		}
+	}
+	
+	printf("the origin numbers:\n");
+		for(i=0;i<a;i++)
+	    {
+		    for(j=0;j<b;j++)
+		    {
+			    printf("%d\t",NUM[i][j]);
+	    	}
+	    	printf("\n");
+	    }
+	    
+	    c=maxx(a,b);
+	    
+	for(i=1;i<c;i++)
+	{
+		for(j=0;j<i;j++)
+		{
+			swap1(&NUM[i][j],&NUM[j][i]);
+		}
+	}
+	
+	printf("\n\n");
+	printf("the new numbers:\n");
+		for(i=0;i<b;i++)
+	    {
+		    for(j=0;j<a;j++)
+		    {
+			    printf("%d\t",NUM[i][j]);
+	    	}
+	    	printf("\n");
+	    }
+}
+
+swap1(int* a,int* b)
+{
+	int pot;
+	pot=*a;
+	*a=*b;
+	*b=pot;
+}
+
+maxx(int a,int b)
+{
+	int c;
+	if(a>b)
+	{
+		c=a;
+	}
+	else
+	{
+		c=b;
+	}
+	return(c);
+}
